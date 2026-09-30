@@ -179,8 +179,8 @@
 ========================= */
 
 .quicklinks {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 
   width: 100%;
   max-width: none;
@@ -245,16 +245,26 @@
   position: relative;
   z-index: 2;
 
-  width: 55%;
+  width: 100%;
 
-  padding: 55px 60px;
+  padding: 20px 60px;
 
   display: flex;
   flex-direction: column;
 
-  gap: 14px;
+  gap: 8px;
 
   box-sizing: border-box;
+
+  border-left: 4px solid #d30e39;
+
+ 
+}
+
+.qlink {
+  display: flex;
+  align-items: stretch;
+   min-height: 200px;
 }
 
 
@@ -407,7 +417,7 @@
   }
 
   .qlink {
-    min-height: 420px;
+    min-height: 200px;
 
     align-items: flex-start;
   }
@@ -478,22 +488,22 @@
   .page-banner .band{position:absolute; right:-40px; top:-60px; width:260px; height:260px; opacity:.15;}
 
   /* ---------- History timeline ---------- */
-  .timeline{position:relative; max-width:760px; margin-top:20px;}
+  .timeline{position:relative; width: 100%; max-width:none; margin-top:20px;}
   .timeline::before{content:""; position:absolute; left:11px; top:6px; bottom:6px; width:1px; background:linear-gradient(180deg, var(--vermilion-dark), var(--gold));}
-  .t-item{position:relative; padding-left:44px; padding-bottom:46px;}
+  .t-item{position:relative; padding-left:44px; padding-bottom:46px; width: 100%; box-sizing: border-box;}
   .t-item:last-child{padding-bottom:0;}
   .t-item::before{content:""; position:absolute; left:2px; top:4px; width:20px; height:20px; border-radius:50%; background:var(--cream); border:2px solid var(--vermilion-dark);}
   .t-era{font-size:0.75rem; letter-spacing:0.15em; color:var(--vermilion-dark); font-weight:700;}
   .t-item h3{margin-top:6px; font-size:1.2rem; font-weight:700;}
-  .t-item p{margin-top:8px; color:var(--ink-soft); font-size:0.94rem; max-width:60ch;}
+  .t-item p{margin-top:8px; color:var(--ink-soft); font-size:1.1rem; line-height: 2; max-width:none; width: 100%;}
 
   .deity-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; margin-top:20px;}
-  .deity-card{background:var(--white); border:1px solid rgba(43,36,32,0.08); padding:24px; border-radius:4px;}
-  .deity-card .tag{font-size:0.7rem; letter-spacing:0.2em; color:var(--moss); font-weight:700;}
-  .deity-card h3{margin-top:8px; font-size:1.1rem;}
+  .deity-card{background:var(--white); border:1px solid rgba(43,36,32,0.08); padding:24px; border-radius:4px; border-left: 4px solid #d30e39;}
+  .deity-card .tag{font-size:1.2rem; letter-spacing:0.2em; color:var(--moss); font-weight:700;}
+  .deity-card h3{margin-top:8px; font-size:1.5rem;}
   .deity-card p{margin-top:8px; font-size:0.88rem; color:var(--ink-soft);}
+  .furigana {font-size: 0.7em; font-weight: normal;}
 
-  /* ---------- Events grid ---------- */
   /* ---------- Events grid ---------- */
 
 .events-grid {
@@ -662,15 +672,16 @@
   }
 
   /* ---------- Access ---------- */
-  .access-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:44px; align-items:start;}
+  .access-grid{display:grid; grid-template-columns: 1fr 0.8fr; gap:60px; align-items:start;}
   @media (max-width:860px){.access-grid{grid-template-columns:1fr;}}
   .info-block{margin-bottom:30px;}
   .info-block h3{font-size:1.02rem; font-weight:700; display:flex; align-items:center; gap:8px; color:var(--vermilion-dark);}
-  .info-block p, .info-block li{color:var(--ink-soft); font-size:0.92rem;}
+  .info-block p, .info-block li{color:var(--ink-soft); font-size:1.5rem;}
   .info-block ul{margin-top:8px; padding-left:20px;}
   .map-card{background:var(--paper); border-radius:6px; padding:18px; border:1px solid rgba(43,36,32,0.08);}
   .map-note{font-size:0.74rem; color:var(--ink-soft); margin-top:10px; text-align:center;}
-
+  .access-image {width:70%;}
+    .access-image img {width:100%; height:auto; display:block; border-radius:6px;}
   /* ---------- Forms ---------- */
   .form-card{background:var(--white); border:1px solid rgba(43,36,32,0.08); border-radius:6px; padding:36px; max-width:720px; box-shadow:var(--shadow);}
   .form-row{margin-bottom:22px;}
@@ -699,8 +710,8 @@
   }
   .confirm-box.show{display:block; animation:fadeUp .4s ease both;}
   .contact-card{background:var(--paper); border-radius:6px; padding:28px; border:1px solid rgba(43,36,32,0.08);}
-  .contact-card h3{font-size:1rem; font-weight:700; margin-bottom:14px;}
-  .contact-card .row{display:flex; gap:12px; margin-bottom:12px; font-size:0.88rem; color:var(--ink-soft);}
+  .contact-card h3{font-size:1.4rem; font-weight:700; margin-bottom:14px;}
+  .contact-card .row{display:flex; gap:12px; margin-bottom:12px; font-size:1.4rem; color:var(--ink-soft);}
   .contact-card .row b{color:var(--ink); font-weight:600; min-width:80px; display:inline-block;}
   .two-col{display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; align-items:start;}
   @media (max-width:860px){.two-col{grid-template-columns:1fr;}}
@@ -1017,9 +1028,10 @@
   background: var(--white);
   border: 1px solid rgba(43,36,32,.08);
   border-radius: 4px;
-  padding: 28px 24px;
-  min-height: 180px;
+  padding: 24px 20px;
+  min-height: 140px;
   transition: transform .3s ease, box-shadow .3s ease;
+  border-left: 4px solid #d30e39;
 }
 
 .prayer-card:hover {
@@ -1036,7 +1048,7 @@
 
 .prayer-card h3 {
   margin-top: 8px;
-  font-size: 1.15rem;
+  font-size: 1.5rem;
   font-weight: 700;
 }
 
@@ -1392,7 +1404,7 @@
    GoogleMap
    ========================= */
 .map-wrapper {
-  width: 150%;
+  width: 180%;
   border-radius: 12px;
   overflow: hidden;
   transform: translateX(-80px);
@@ -1415,11 +1427,18 @@
 .prayer-image {
   position: absolute;
 
-  /* ここを自由に変更 */
-  width: 600px;
-  top: 0;
+  width: 500px;
+  top: 200px;
   right: 0;
-  transform: translateX(120px);
+  transform: none;
+}
+
+.prayer-image img {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
 .prayer-image img {
@@ -1473,4 +1492,27 @@
   letter-spacing: 0.04em;
 }
 
+
+.intro-with-image {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+}
+
+.intro-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.intro-image {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+.intro-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
