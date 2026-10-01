@@ -297,3 +297,151 @@ body{background:var(--paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
 .prayer-card:hover::before{transform:scaleY(1)}
 ::selection{background:var(--shu);color:var(--white)}
 @media (max-width:900px){.intro-with-image::before{font-size:14rem;top:-40px}}
+
+/* =========================================================
+   神宮の公式サイトにならった、白と余白の凛とした見た目
+========================================================= */
+:root{
+  --paper:#fbfaf7; --paper-2:#f1eee6; --card:#ffffff;
+  --ink:#262626; --ink-soft:#5f5b54; --white:#ffffff;
+  --shu:#a3342a; --shu-dark:#8a2b22;
+  --gold:#9a8450; --gold-light:#d9c89a; --sumi:#1f1f1f;
+  --line:rgba(38,38,38,.14);
+  --shadow:0 14px 34px -22px rgba(0,0,0,.28);
+}
+body{background:var(--paper);color:var(--ink);line-height:2}
+::selection{background:var(--ink);color:#fff}
+.section{padding:120px 0}
+
+/* ヘッダー：白地に細い線 */
+.site-header{background:rgba(255,255,255,.95);border-bottom:1px solid var(--line)}
+.site-header::after{display:none}
+.brand{color:var(--ink)}
+.brand .mon{filter:none}
+.main-nav a{color:var(--ink-soft);letter-spacing:.14em}
+.main-nav a:hover,.main-nav a.active{color:var(--ink)}
+.main-nav a::after{background:var(--shu)}
+.hamburger span{background:var(--ink)}
+.mobile-nav.open{background:#fff;border-bottom:1px solid var(--line)}
+.mobile-nav a{color:var(--ink);border-top:1px solid var(--line)}
+.mobile-nav a.active{color:var(--shu-dark);background:var(--paper)}
+
+
+/* 見出し：墨色で静かに、中央揃え */
+.section-head h2,.page-banner h1{background:none;-webkit-text-fill-color:currentColor;color:var(--ink);font-weight:600;letter-spacing:.18em}
+.section-head{margin-bottom:64px}
+.section-head h2::after{width:1px;height:48px;margin:26px auto 0;background:var(--shu)}
+.eyebrow{color:var(--ink-soft);font-weight:500;letter-spacing:.34em;font-size:.95rem}
+.eyebrow::before,.eyebrow::after{width:22px;height:1px;background:var(--ink-soft)}
+.intro-content .eyebrow{display:flex;justify-content:center}
+.intro-with-image::before{color:var(--ink);opacity:.035}
+.intro-image::before{border-color:var(--gold)}
+.intro-text{color:var(--ink-soft);line-height:2.4}
+
+/* 面：平らな白に細い線 */
+.qlink,.deity-card,.t-item,.event-card,.prayer-category,.info-block,.contact-card,.map-wrapper{background:#fff}
+.deity-card,.t-item,.prayer-category,.contact-card,.info-block{box-shadow:none;border:1px solid var(--line)}
+.deity-card{border-top:1px solid var(--line)}
+.deity-card::before{content:"";position:absolute;left:32px;top:-1px;width:48px;height:3px;background:var(--shu)}
+.deity-card .tag{background:none;color:var(--shu-dark);padding:0;font-size:1rem;letter-spacing:.3em}
+.t-item::before{background:var(--shu)}
+.qlink{min-height:190px}
+.qlink::after{display:none}
+.qlink::before{height:1px;top:auto;bottom:0;background:var(--ink)}
+.qlink h3{font-weight:600}
+.qlink:hover{background:#fff;border-color:var(--ink);box-shadow:var(--shadow)}
+.qlink:hover h3{color:var(--shu-dark)}
+.qlink:hover p{color:var(--ink-soft)}
+.event-card:hover,.deity-card:hover{box-shadow:var(--shadow)}
+.event-card .month{color:var(--shu-dark)}
+.prayer-card{background:var(--paper)}
+.prayer-card:hover{background:#fff;color:var(--ink);border-color:var(--ink)}
+.prayer-note{background:none;border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--ink-soft)}
+.back-link{border-color:var(--ink);color:var(--ink)}
+.back-link:hover{background:var(--ink);color:#fff}
+.photo-card::after{border-color:rgba(255,255,255,.7)}
+.detail-hero,.prayer-image{border-bottom:0}
+
+/* ページ上部：明るい生成りに大きな題字 */
+.page-banner{background:var(--paper-2);color:var(--ink);padding:96px 0 64px;text-align:center;border-bottom:1px solid var(--line)}
+.page-banner::after{display:none}
+.page-banner h1{font-size:clamp(2rem,4.4vw,3rem)}
+.page-banner h1::after{width:1px;height:44px;margin:24px auto 0}
+.page-banner .jp-sub{color:var(--ink-soft);letter-spacing:.3em}
+.page-banner .crumbs{color:var(--ink-soft)}
+.page-banner .crumbs a{color:var(--shu-dark)!important}
+
+/* フッター：明るく簡素に */
+footer{background:var(--paper-2);color:var(--ink-soft);border-top:1px solid var(--line)}
+footer h4{color:var(--ink);letter-spacing:.3em}
+.brand-f .name{color:var(--ink)}
+footer li a:hover{color:var(--shu-dark)}
+.footer-bottom{border-top:1px solid var(--line);opacity:1}
+
+@media (max-width:560px){
+  .section{padding:72px 0}
+  .page-banner{padding:64px 0 48px}
+}
+
+/* =========================================================
+   トップページの構成（写真コラージュ／主な祭典／三つの入口）
+========================================================= */
+.kv{display:block;min-height:calc(100svh - var(--head));background:#f5f2eb}
+.kv::before,.kv::after{display:none}
+.kv-photos{position:absolute;inset:0;display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:repeat(8,1fr);gap:14px;padding:18px}
+.kv-photos img{width:100%;height:100%;object-fit:cover;opacity:0;animation:kvIn 1.6s cubic-bezier(.22,1,.36,1) forwards;animation-delay:calc(var(--i)*.18s + .2s)}
+@keyframes kvIn{from{opacity:0;transform:scale(1.06)}to{opacity:1;transform:none}}
+.kv-photos .p1{grid-area:1/1/5/4}
+.kv-photos .p2{grid-area:1/4/3/7}
+.kv-photos .p3{grid-area:1/7/4/10}
+.kv-photos .p4{grid-area:1/10/6/13}
+.kv-photos .p5{grid-area:5/1/9/3}
+.kv-photos .p6{grid-area:6/3/9/5}
+.kv-photos .p7{grid-area:6/9/9/13}
+.kv-photos .p8{grid-area:7/7/9/9}
+.kv-title{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;display:flex;flex-direction:row-reverse;gap:30px;align-items:flex-start;animation:kvTitle 1.6s 1.2s both}
+@keyframes kvTitle{from{opacity:0}to{opacity:1}}
+.kv-title h1{writing-mode:vertical-rl;font-size:clamp(3rem,7vw,5.4rem);font-weight:700;letter-spacing:.28em;color:var(--ink)}
+.kv-title p{writing-mode:vertical-rl;margin-top:1.4em;font-family:'Shippori Mincho',serif;font-size:clamp(.9rem,1.4vw,1.1rem);letter-spacing:.35em;color:var(--ink-soft)}
+
+.welcome{padding:110px 24px 96px;text-align:center}
+.welcome h2{font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:.2em}
+.welcome p{margin-top:24px;color:var(--ink-soft);letter-spacing:.06em}
+.btn-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:44px}
+.btn-row a{min-width:170px;padding:14px 28px;border:1px solid var(--ink);border-radius:999px;font-size:.95rem;letter-spacing:.14em;transition:background .3s,color .3s}
+.btn-row a:hover{background:var(--ink);color:#fff}
+
+.band{padding:88px 0;background:var(--paper-2)}
+.sec-title{display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:34px;padding-bottom:18px;border-bottom:2px solid var(--ink)}
+.sec-title h2{font-size:1.7rem;letter-spacing:.16em}
+.sec-title a{font-size:.9rem;color:var(--ink-soft);border-bottom:1px solid var(--ink-soft)}
+.news{list-style:none}
+.news a{display:flex;align-items:center;gap:26px;padding:24px 8px;border-bottom:1px solid var(--line);transition:background .25s,padding .25s}
+.news a:hover{background:rgba(255,255,255,.7);padding-left:20px}
+.news .d{flex:none;width:12.5em;font-family:'Shippori Mincho',serif;font-size:.95rem;color:var(--ink-soft)}
+.news .t{flex:none;padding:2px 16px;border:1px solid var(--shu);color:var(--shu-dark);font-size:.78rem;letter-spacing:.2em}
+.news .n{flex:1;font-size:.9rem;color:var(--ink-soft)}
+.news .n b{display:block;font-family:'Shippori Mincho',serif;font-size:1.15rem;color:var(--ink);letter-spacing:.1em}
+
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:96px}
+.cat{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--sumi)}
+.cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+.cat:hover img{transform:scale(1.06)}
+.cat::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.72),rgba(0,0,0,.05) 65%)}
+.cat-body{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:32px;color:#fff}
+.cat h3{font-size:2.2rem;letter-spacing:.3em}
+.cat ul{list-style:none;margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.cat a{display:block;padding:6px 18px;border:1px solid rgba(255,255,255,.8);border-radius:999px;font-size:.88rem;letter-spacing:.1em;transition:background .3s,color .3s}
+.cat a:hover{background:#fff;color:var(--ink)}
+.visit-box{display:grid;grid-template-columns:1fr 2fr;gap:40px;margin-top:64px;padding:48px;background:var(--paper-2)}
+.visit-box h3{font-size:1.5rem;letter-spacing:.16em}
+.visit-box dl{display:grid;grid-template-columns:8em 1fr;gap:12px 20px}
+.visit-box dt{font-family:'Shippori Mincho',serif;font-weight:700;color:var(--shu-dark)}
+
+@media (max-width:900px){.cats{grid-template-columns:1fr}.cat{aspect-ratio:16/10}.visit-box{grid-template-columns:1fr;padding:32px 24px}.news a{flex-wrap:wrap;gap:10px}.news .d{width:auto}.news .n{flex-basis:100%}}
+@media (max-width:640px){
+  .kv-photos{grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(8,1fr);gap:8px;padding:10px}
+  .kv-photos .p1{grid-area:1/1/4/3}.kv-photos .p4{grid-area:1/3/3/5}.kv-photos .p5{grid-area:6/1/9/3}.kv-photos .p7{grid-area:5/3/9/5}
+  .kv-photos .p2,.kv-photos .p3,.kv-photos .p6,.kv-photos .p8{display:none}
+  .kv-title{gap:18px}.welcome{padding:72px 20px}.band{padding:60px 0}
+}

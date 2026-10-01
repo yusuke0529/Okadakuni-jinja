@@ -772,7 +772,18 @@ window.addEventListener("scroll", () => {
    Init
 ========================================================= */
 
+function renderHomeNews() {
+  const list = document.getElementById("homeNews");
+  if (!list) return;
+  list.innerHTML = events.slice(1, 6).map(e => `
+    <li><a href="#event-detail-${e.id}">
+      <span class="d">${e.month}</span><span class="t">祭典</span>
+      <span class="n"><b>${e.title}</b>${e.short}</span>
+    </a></li>`).join("");
+}
+
 renderEvents();
+renderHomeNews();
 
 renderPhotos();
 
