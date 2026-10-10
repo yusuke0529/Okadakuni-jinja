@@ -445,3 +445,15 @@ footer li a:hover{color:var(--shu-dark)}
   .kv-photos .p2,.kv-photos .p3,.kv-photos .p6,.kv-photos .p8{display:none}
   .kv-title{gap:18px}.welcome{padding:72px 20px}.band{padding:60px 0}
 }
+
+/* 由緒・歴史：旧社殿の写真を文章の右に小さく添える */
+.t-item{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;align-items:start}
+.t-item p{order:1;min-width:0}
+.t-fig{order:2;position:sticky;top:110px;margin:0}
+.t-fig img{width:100%;aspect-ratio:4/5;object-fit:cover;box-shadow:var(--shadow)}
+.t-fig figcaption{margin-top:14px;text-align:center;font-family:'Shippori Mincho',serif;font-size:.9rem;letter-spacing:.4em;color:var(--ink-soft)}
+@media (max-width:900px){
+  .t-item{grid-template-columns:1fr;gap:32px}
+  .t-fig{position:static}
+  .t-fig img{aspect-ratio:3/2}
+}
